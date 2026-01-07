@@ -16,12 +16,12 @@ GO
 CREATE TABLE gold.dim_customers(
 	customer_key int,
 	customer_id int,
-	customer_number VARCHAR,
+	customer_number VARCHAR(50),
 	first_name VARCHAR(50),
 	last_name VARCHAR(50),
-	country CHAR,
-	marital_status CHAR,
-	gender CHAR,
+	country VARCHAR(50),
+	marital_status VARCHAR(50),
+	gender VARCHAR(50),
 	birth_date DATE,
 	create_date DATE
 );
@@ -36,14 +36,14 @@ GO
 CREATE TABLE gold.dim_product(
 	product_key int,
 	product_id int,
-	product_number VARCHAR,
-	product_name VARCHAR,
-	category_id VARCHAR,
-	category VARCHAR,
-	subcategory VARCHAR,
-	maintenance CHAR,
+	product_number VARCHAR(MAX),
+	product_name VARCHAR(MAX),
+	category_id VARCHAR(MAX),
+	category VARCHAR(MAX),
+	subcategory VARCHAR(MAX),
+	maintenance VARCHAR(50),
 	cost int,
-	product_line VARCHAR,
+	product_line VARCHAR(MAX),
 	start_date DATE
 );
 
@@ -55,7 +55,7 @@ IF OBJECT_ID('gold.fact_sales','U') IS NOT NULL
 GO
 -- Creating 'gold.fact_sales' Table
 CREATE TABLE gold.fact_sales(
-	order_number VARCHAR,
+	order_number VARCHAR(MAX),
 	product_key int,
 	customer_key int,
 	order_date DATE,
